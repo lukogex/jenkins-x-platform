@@ -49,9 +49,9 @@
         volumeMounts:
           - mountPath: /home/jenkins
             name: workspace-volume
-  {{- if .agent.DockerHostPath }}
+  {{- if .agent.dockerHostPath }}
           - name: docker-daemon
-            mountPath: {{ .agent.DockerMountPath }}
+            mountPath: {{ .agent.dockerMountPath }}
   {{- end }}
   {{- range $index, $volume := .pval.volumes }}
           - name: volume-{{ $index }}
@@ -60,10 +60,10 @@
   {{- end }}
 {{- end }}
 
-{{- if .Values.jenkins.Agent.Enabled }}
-{{- $agent := .Values.jenkins.Agent -}}
+{{- if .Values.jenkins.agent.Enabled }}
+{{- $agent := .Values.jenkins.agent -}}
 {{- $globalenv := .Values.jenkins.Servers.Global.EnvVars -}}
-{{- range $pkey, $pval := .Values.jenkins.Agent.PodTemplates }}
+{{- range $pkey, $pval := .Values.jenkins.agent.PodTemplates }}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -101,10 +101,10 @@ data:
       volumes:
       - name: workspace-volume
         emptyDir: {}
-{{- if $agent.DockerHostPath }}
+{{- if $agent.dockerHostPath }}
       - name: docker-daemon
         hostPath:
-          path: {{ $agent.DockerHostPath }}
+          path: {{ $agent.dockerHostPath }}
 {{- end }}
 {{- range $index, $volume := $pval.volumes }}
       - name: volume-{{ $index }}

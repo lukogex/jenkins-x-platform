@@ -1,4 +1,4 @@
-CHART_REPO := http://jenkins-x-chartmuseum:8080
+CHART_REPO := http://chartmuseum.devinfra.xxxlgroup.com 
 NAME := jenkins-x
 OS := $(shell uname)
 HELM := helm
