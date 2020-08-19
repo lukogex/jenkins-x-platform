@@ -21,7 +21,7 @@ dependencies:
   owner: jenkins-x
   repo: jenkins-x-builders
   url: https://github.com/jenkins-x/jenkins-x-builders
-  version: 2.0.1100-436
+  version: 2.1.132-751
   versionURL: ""
 - host: github.com
   owner: jenkins-x
@@ -37,13 +37,13 @@ dependencies:
     version: 2.0.564
     versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.564
   url: https://github.com/jenkins-x/jx.git
-  version: 2.0.1100
-  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.1100
+  version: 2.1.132
+  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.1.132
 - host: github.com
   owner: jenkins-x
   repo: jenkins-x-builders-ml
   url: https://github.com/jenkins-x/jenkins-x-builders-ml
-  version: 0.1.1027
+  version: 0.1.1300
   versionURL: ""
 - host: github.com
   owner: jenkins-x
@@ -51,3 +51,9 @@ dependencies:
   url: https://github.com/jenkins-x/jenkins-x-image
   version: 0.0.81
   versionURL: https://github.com/jenkins-x/jenkins-x-image/releases/tag/v0.0.81
+- host: github.com
+  owner: jenkins-x-charts
+  repo: nexus
+  url: https://github.com/jenkins-x-charts/nexus
+  version: 0.1.35
+  versionURL: ""

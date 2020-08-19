@@ -16,6 +16,16 @@ pipelineConfig:
             value: jenkins-x@googlegroups.com
           - name: GIT_AUTHOR_NAME
             value: jenkins-x-bot
+          - name: CHARTMUSEUM_USER
+            valueFrom:
+              secretKeyRef:
+                name: jenkins-x-chartmuseum
+                key: BASIC_AUTH_USER
+          - name: CHARTMUSEUM_PASS
+            valueFrom:
+              secretKeyRef:
+                name: jenkins-x-chartmuseum
+                key: BASIC_AUTH_PASS
           steps:
           - image: gcr.io/jenkinsxio/builder-jx:0.1.610
             command: jx
@@ -27,7 +37,7 @@ pipelineConfig:
               - -k
               - BASIC_AUTH_USER
               - -f
-              - /builder/home/basic-auth-user.json
+              - /tekton/home/basic-auth-user.json
             name: basic-auth-username
           - image: gcr.io/jenkinsxio/builder-jx:0.1.610
             command: jx
@@ -39,7 +49,7 @@ pipelineConfig:
               - -k
               - BASIC_AUTH_PASS
               - -f
-              - /builder/home/basic-auth-pass.json
+              - /tekton/home/basic-auth-pass.json
             name: basic-auth-password
           - image: gcr.io/jenkinsxio/builder-jx:0.1.610
             command: make
