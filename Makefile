@@ -8,8 +8,8 @@ init:
 
 setup: init
 	$(HELM) repo add jx http://chartmuseum.jenkins-x.io
-	$(HELM) repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
-	$(HELM) repo add stable https://kubernetes-charts.storage.googleapis.com
+	$(HELM) repo add incubator https://charts.helm.sh/incubator
+	$(HELM) repo add stable https://charts.helm.sh/stable
 	$(HELM) repo add monocular https://helm.github.io/monocular
 
 build: setup clean
@@ -52,6 +52,6 @@ endif
 	helm repo list
 	helm repo update
 	rm -rf ${NAME}*.tgz
-	jx step changelog  --verbose --version ${VERSION} --rev ${PULL_BASE_SHA}
-	jx step create pr make --name CHART_VERSION --version $(VERSION) --repo https://github.com/jenkins-x/cloud-environments.git
-	jx step create pr regex --regex "JX_PLATFORM_VERSION=(.*)" --version $(VERSION) --files build.sh --repo https://github.com/jenkins-x/cloud-environments.git
+	# jx step changelog  --verbose --version ${VERSION} --rev ${PULL_BASE_SHA}
+	# jx step create pr make --name CHART_VERSION --version $(VERSION) --repo https://github.com/jenkins-x/cloud-environments.git
+	# jx step create pr regex --regex "JX_PLATFORM_VERSION=(.*)" --version $(VERSION) --files build.sh --repo https://github.com/jenkins-x/cloud-environments.git
